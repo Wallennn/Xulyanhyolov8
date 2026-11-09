@@ -1,0 +1,21 @@
+services:
+  xulyanh-yolov8:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: xulyanh-yolov8:latest
+    container_name: xulyanh_yolov8_app
+    environment:
+      # Trên Linux: biến DISPLAY được lấy tự động từ hệ thống
+      # Trên Windows (dùng VcXsrv / Xming): truyền host.docker.internal:0.0
+      - DISPLAY=${DISPLAY:-host.docker.internal:0.0}
+    volumes:
+      # Chia sẻ socket X11 (Linux)
+      - /tmp/.X11-unix:/tmp/.X11-unix:rw
+      # Đồng bộ mã nguồn và thư mục lưu trữ ảnh/video kết quả với máy host
+      - .:/app
+    # Để truy cập webcam trên máy Linux, bỏ ghi chú dòng bên dưới:
+    # devices:
+    #   - /dev/video0:/dev/video0
+    stdin_open: true
+    tty: true

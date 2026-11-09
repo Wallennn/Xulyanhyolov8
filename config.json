@@ -1,0 +1,10 @@
+{
+    "label_style": "Kh\u00f4ng d\u1ea5u",
+    "model": "yolov8s.pt",
+    "confidence": 0.44,
+    "alert_object": "person",
+    "resize_scale": 1.2,
+    "theme": "light",
+    "auto_capture_object": "apple",
+    "auto_capture_threshold": 3
+}
